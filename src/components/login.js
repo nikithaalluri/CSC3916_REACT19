@@ -2,20 +2,14 @@ import React, { useState } from 'react';
 import { submitLogin } from '../actions/authActions';
 import { useDispatch } from 'react-redux';
 import { Form, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
-
 
 function Login() {
-  const dispatch = useDispatch();
   const [details, setDetails] = useState({
     username: '',
     password: '',
   });
 
-  const navigate = useNavigate();
-  dispatch(submitLogin(details, navigate));
-
-
+  const dispatch = useDispatch();
 
   const updateDetails = (event) => {
     setDetails({

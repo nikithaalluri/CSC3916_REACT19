@@ -18,20 +18,16 @@ function MovieList() {
         dispatch(fetchMovies());
     }, [dispatch]);
 
-    useEffect(() => {
-      console.log("Fetched movies:", movies);  // Debugging log
-    }, [movies]);
-
     const handleSelect = (selectedIndex) => {
-      if (!memoizedMovies || memoizedMovies.length === 0) return; // Ensure data is present
-      dispatch(setMovie(memoizedMovies[selectedIndex]));
+        // Use memoizedMovies here
+        dispatch(setMovie(memoizedMovies[selectedIndex]));
     };
 
     const handleClick = (movie) => {
         dispatch(setMovie(movie));
     };
 
-    if (!memoizedMovies || !Array.isArray(memoizedMovies) || memoizedMovies.length === 0) { // Use memoizedMovies here
+    if (!memoizedMovies) { // Use memoizedMovies here
         return <div>Loading....</div>;
     }
 
