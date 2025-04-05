@@ -12,6 +12,9 @@ const MovieDetail = () => {
   const loading = useSelector(state => state.movie.loading); // Assuming you have a loading state in your reducer
   const error = useSelector(state => state.movie.error); // Assuming you have an error state in your reducer
 
+  useEffect(() => {
+    console.log("Redux selectedMovie:", selectedMovie);
+  }, [selectedMovie]);
 
   useEffect(() => {
     dispatch(fetchMovie(movieId));
