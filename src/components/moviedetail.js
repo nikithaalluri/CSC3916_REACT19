@@ -85,11 +85,15 @@ const MovieDetail = () => {
           </ListGroupItem>
         </ListGroup>
         <Card.Body>
-          {selectedMovie.reviews.map((review, i) => (
-            <p key={i}>
-              <b>{review.username}</b>&nbsp; {review.review} &nbsp; <BsStarFill /> {review.rating}
-            </p>
-          ))}
+          {Array.isArray(selectedMovie.reviews) && selectedMovie.reviews.length > 0 ? (
+            selectedMovie.reviews.map((review, i) => (
+              <p key={i}>
+                <b>{review.username}</b>&nbsp; {review.review} &nbsp; <BsStarFill /> {review.rating}
+              </p>
+            ))
+          ) : (
+            <p>No reviews yet.</p>
+          )}
         </Card.Body>
       </Card>
     );
